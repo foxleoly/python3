@@ -6,6 +6,7 @@ def get_mac_address(iface):
 	found = 0 
 	location = 0
 	index = 0
+#looking for the mac address in the CLI output. useing the RE lib [re.match]
 	for x in words:
 		if re.match('\w\w:\w\w:\w\w:\w\w:\w\w:\w\w', x):
 			found = 1
