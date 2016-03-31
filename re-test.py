@@ -4,6 +4,7 @@ import os
 import json
 from pprint import pprint
 #load json data from a file and convert to string
+#the file name "json_data"
 data = open('json_data','r').read()
 data_json = json.loads(data)
 i = 1
