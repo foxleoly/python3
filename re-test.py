@@ -4,11 +4,9 @@ import os
 import json
 from pprint import pprint
 #load json data from a file and convert to string
-#data = open('test_data','r').read()
-#load json data
-#data_re = json.loads(data)
-with open('test_data','r') as f:
-	data = json.loads(f)
-
-for issues in data.items():
-	pprint("****"+str(issues))
+data = open('json_data','r').read()
+data_json = json.loads(data)
+i = 1
+for i in range (data_json['maxResults']):
+	print(dict(data_json['issues'][i])['key']+" | "+ data_json['issues'][i]['fields']['summary'])
+	
