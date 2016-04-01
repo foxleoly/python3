@@ -10,7 +10,6 @@ def arpping(network_prefix):
 	for i in range(len(result_list)):
 		arp_result_fields = result_list[i][1][1].fields
 		print('IP addr: ' + arp_result_fields['psrc'] + '	is UP!	'+ 'Mac addr:' + arp_result_fields['hwsrc'])
-	print(result_raw)
-	print(result_list)
+
 if __name__ == '__main__':
 	arpping('192.168.3.0/24')
