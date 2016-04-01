@@ -11,4 +11,3 @@ data_json = json.loads(data)
 i = 1
 for i in range (data_json['maxResults']):
 	print(dict(data_json['issues'][i])['key']+" | "+ data_json['issues'][i]['fields']['summary'])
-	
