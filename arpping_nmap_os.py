@@ -1,19 +1,22 @@
 #!/usr/bin/env python3
 from scapy.all import *
-import logging
+import os
+import nmap
+#import logging
 
-logging.basicConfig(filename='arp_ping.log', level=logging.DEBUG)
+#logging.basicConfig(filename='arp_ping.log', level=logging.DEBUG)
 
 
 # fileLog = open('arping.log','w')
 
-def arp_ping(net) -> object:
-    raw = arp_ping(net, verbose=False)
+def arp_ping(net):
+    raw = arping(net, timeout=2, verbose=False)
     raw_reslut = raw[0].res
 
     for i in range(len(raw_reslut)):
         arp_result_fields = raw_reslut[i][1][1].fields
-        print('IP addr: ' + arp_result_fields['psrc'] + '	is UP!	' + 'Mac addr:' + arp_result_fields['hwsrc'])
+        IPs= arp_result_fields['psrc']
+#        print('IP addr: ' + arp_result_fields['psrc'] + '	is UP!	' + 'Mac addr:' + arp_result_fields['hwsrc'])
 #        logging.info('This is RAW OUTPUT:\n')
 #        logging.debug(raw)
 #        logging.info('This is RAW_RESULT OUTPUT:\n')

@@ -19,7 +19,11 @@ class Example(QWidget):
         qbtn.resize(qbtn.sizeHint())
         qbtn.move(50, 50)
 
+<<<<<<< HEAD
         self.setGeometry(300, 300, 250, 150)
+=======
+        self.setGeometry(300,300,250,150)
+>>>>>>> origin/master
         self.setWindowTitle('Quit Button Test')
         self.show()
 

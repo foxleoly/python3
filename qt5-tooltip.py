@@ -5,11 +5,11 @@ The script to make a widget and display a tooltips when the mouse move to button
 
 """
 import sys
-from PyQt5.QtWidgets import (QWidget, QToolTip, QPushButton, QApplication)
+from PyQt5.QtWidgets import (QWidget, QToolTip,QPushButton,QApplication)
 from PyQt5.QtGui import QFont
 
-
 class Example(QWidget):
+
 
     def __init__(self):
         super().__init__()

@@ -15,7 +15,11 @@ from time import sleep
 # enter the group:
 # ent_x, ent_y = pygui.center(pygui.locateOnScreen('D:\workspace\python3\python3\wechat-png\enter.png'))
 # pygui.click(ent_x, ent_y, button='left')
+<<<<<<< HEAD
 test_x, test_y = pygui.center(pygui.locateOnScreen(r'D:\\workspace\\python3\\python3\\wechat-png\\amy.png'))
+=======
+test_x, test_y = pygui.center(pygui.locateOnScreen(r'wechat-png\\amy.png'))
+>>>>>>> origin/master
 pygui.click(test_x, test_y, button='left')
 
 #pygui.typewrite(word1, interval=0.2)
