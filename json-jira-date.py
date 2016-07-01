@@ -1,6 +1,6 @@
 #!/usr/local/bin/env python3
 #import re
-import os
+#import os
 import json
 #from pprint import pprint
 #The json data can be pretty display on screen if using pprint
