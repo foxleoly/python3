@@ -1,31 +1,64 @@
-#!Author: Leo Li
-# Guide:
-# 1.put the wechat on full screen
-# 2.run this script
-# import pyautogui lib
+#
+# Author: Leo Li
 # --coding: utf-8 --
+#
+#
+# Guide:
+# 1. capture wechat grp title image in QQ browser
+# 2. put the iamges to defined directory
+# 3. run the script
+# *********DO NOT MOVE mouse and TOUCH KEYBOARD when the SCRIPT RUNNING****************
+#
+
 import pyautogui as pygui
+import json as js
+import codecs
+import clipboard as cpbd
+import os.path
 from time import sleep
 
-# input your msg here:
-#word1 = pygui.prompt(text=r'输入你的消息：', title=r'消息')
-# locate the 1st group on contact list:
-# grp_x, grp_y = pygui.center(pygui.locateOnScreen('D:\workspace\python3\python3\wechat-png\grp0.png'))
-# pygui.click(grp_x, grp_y, button='left')
-# enter the group:
-# ent_x, ent_y = pygui.center(pygui.locateOnScreen('D:\workspace\python3\python3\wechat-png\enter.png'))
-# pygui.click(ent_x, ent_y, button='left')
-<<<<<<< HEAD
-test_x, test_y = pygui.center(pygui.locateOnScreen(r'D:\\workspace\\python3\\python3\\wechat-png\\amy.png'))
-=======
-test_x, test_y = pygui.center(pygui.locateOnScreen(r'wechat-png\\amy.png'))
->>>>>>> origin/master
+"""
+regarding the lib:
+1. pyautogui. for control the mouse and keyboard
+2. json. the message define as json format. You need paste the mesg to json file
+3. codecs. the message include the Chinese char, it will be process using utf-8
+4. clipboard. copy the message to clipboard. it will be paste to wechat by pyautogui
+"""
+
+# incase the script fail.
+pygui.FAILSAFE = True
+
+"""
+load the json format data from file msg-json.txt.
+"""
+
+mesg = codecs.open('msg-json.txt', 'r', 'utf-8')
+mesg_json = js.load(mesg)
+
+# msg1 set to clipboard
+cpbd.copy(mesg_json['msg1'])
+
+# walk the image path in directory and generate the path.
+Grp1Dir = "wechat-png\\"
+for fileNames in os.walk(Grp1Dir):
+
+    for _fullPath in fileNames[2]:
+        fullPath = Grp1Dir + _fullPath
+#        file_x, file_y = pygui.center(pygui.locateOnScreen(fullPath))
+#        pygui.click(file_x, file_y, button='left')
+#        pygui.hotkey('ctrl', 'v')
+#        pygui.hotkey('enter')
+        print(fullPath)
+        sleep(2)
+
+"""
+# get the position
+#test_x, test_y = pygui.center(pygui.locateOnScreen('..\\wechat-png\\amy.png'))
 pygui.click(test_x, test_y, button='left')
-
-#pygui.typewrite(word1, interval=0.2)
-
-sleep(1)
 pygui.hotkey('ctrl', 'v')
-pygui.hotkey('alt', 's')
+pygui.hotkey('enter')
+"""
 # wait 1 second
-pygui.alert('Done!!')
+#sleep(1)
+
+pygui.alert('发完了！打赏呗!')
